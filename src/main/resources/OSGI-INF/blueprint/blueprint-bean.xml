@@ -9,15 +9,15 @@
 
     <cm:property-placeholder id="properties" persistent-id="fixt"/>
 
-    <bean id="quickfix" class="org.apache.camel.component.quickfixj.QuickfixComponent">
-        <property name="configuration">
+    <bean id="quickfix" class="org.apache.camel.component.quickfixj.QuickfixjComponent">
+        <property name="configurations">
             <map>
                 <entry key="config" value-ref="quickfixConfiguration"/>
             </map>
         </property>
     </bean>
 
-    <bean id="quickfixConfiguration" class="org.apache.camel.component.quickfixj.QuickfixConfiguration">
+    <bean id="quickfixConfiguration" class="org.apache.camel.component.quickfixj.QuickfixjConfiguration">
         <property name="defaultSettings">
             <map>
                 <entry key="SLF4JLogEventCategory" value="fixt.event"/>
