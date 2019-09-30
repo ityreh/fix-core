@@ -9,35 +9,71 @@
 
     <cm:property-placeholder id="properties" persistent-id="fixt"/>
 
-    <bean id="quickfix" class="org.apache.camel.component.quickfixj.QuickfixjComponent">
+    <bean id="quickfixAcceptor" class="org.apache.camel.component.quickfixj.QuickfixjComponent">
         <property name="configurations">
             <map>
-                <entry key="config" value-ref="quickfixConfiguration"/>
+                <entry key="config" value-ref="quickfixConfigurationAcceptor"/>
             </map>
         </property>
     </bean>
 
-    <bean id="quickfixConfiguration" class="org.apache.camel.component.quickfixj.QuickfixjConfiguration">
+    <bean id="quickfixInitiator" class="org.apache.camel.component.quickfixj.QuickfixjComponent">
+        <property name="configurations">
+            <map>
+                <entry key="config" value-ref="quickfixConfigurationInitiator"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="quickfixConfigurationAcceptor" class="org.apache.camel.component.quickfixj.QuickfixjConfiguration">
         <property name="defaultSettings">
             <map>
-                <entry key="SLF4JLogEventCategory" value="fixt.event"/>
-                <entry key="SLF4JLogIncomingMessageCategory" value="fixt.incoming"/>
-                <entry key="SLF4JLogOutgoingMessageCategory" value="fixt.outgoing"/>
-                <entry key="SLF4JLogHeartbeats" value="${quickfix.SLF4JLogHeartbeats}"/>
-                <entry key="PersistMessages" value="${quickfix.PersistMessages}"/>
-                <entry key="FileStorePath" value="${quickfix.FileStorePath}"/>
+                <entry key="SLF4JLogEventCategory" value="fixt.acceptor.event"/>
+                <entry key="SLF4JLogIncomingMessageCategory" value="fixt.acceptor.incoming"/>
+                <entry key="SLF4JLogOutgoingMessageCategory" value="fixt.acceptor.outgoing"/>
+                <entry key="SLF4JLogHeartbeats" value="${quickfix.acceptor.SLF4JLogHeartbeats}"/>
+                <entry key="PersistMessages" value="${quickfix.acceptor.PersistMessages}"/>
+                <entry key="FileStorePath" value="${quickfix.acceptor.FileStorePath}"/>
             </map>
         </property>
         <property name="sessionSettings">
             <map>
-                <entry key="${quickfix.key}">
+                <entry key="${quickfix.acceptor.key}">
                     <map>
                         <entry key="ConnectionType" value="acceptor"/>
-                        <entry key="SocketAcceptPort" value="${quickfix.SocketAcceptPort}"/>
-                        <entry key="DataDictionary" value="${quickfix.DataDictionary}"/>
-                        <entry key="TimeZone" value="${quickfix.TimeZone}"/>
-                        <entry key="StartTime" value="${quickfix.StartTime}"/>
-                        <entry key="EndTime" value="${quickfix.EndTime}"/>
+                        <entry key="SocketAcceptPort" value="${quickfix.acceptor.SocketAcceptPort}"/>
+                        <entry key="DataDictionary" value="${quickfix.acceptor.DataDictionary}"/>
+                        <entry key="TimeZone" value="${quickfix.acceptor.TimeZone}"/>
+                        <entry key="StartTime" value="${quickfix.acceptor.StartTime}"/>
+                        <entry key="EndTime" value="${quickfix.acceptor.EndTime}"/>
+                    </map>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="quickfixConfigurationInitiator" class="org.apache.camel.component.quickfixj.QuickfixjConfiguration">
+        <property name="defaultSettings">
+            <map>
+                <entry key="SLF4JLogEventCategory" value="fixt.initiator.event"/>
+                <entry key="SLF4JLogIncomingMessageCategory" value="fixt.initiator.incoming"/>
+                <entry key="SLF4JLogOutgoingMessageCategory" value="fixt.initiator.outgoing"/>
+                <entry key="SLF4JLogHeartbeats" value="${quickfix.initiator.SLF4JLogHeartbeats}"/>
+                <entry key="PersistMessages" value="${quickfix.initiator.PersistMessages}"/>
+                <entry key="FileStorePath" value="${quickfix.initiator.FileStorePath}"/>
+            </map>
+        </property>
+        <property name="sessionSettings">
+            <map>
+                <entry key="${quickfix.initiator.key}">
+                    <map>
+                        <entry key="ConnectionType" value="acceptor"/>
+                        <entry key="SocketAcceptPort" value="${quickfix.initiator.SocketAcceptPort}"/>
+                        <entry key="SocketConnectHost" value="${quickfix.initiator.SocketConnectHost"/>
+                        <entry key="DataDictionary" value="${quickfix.initiator.DataDictionary}"/>
+                        <entry key="TimeZone" value="${quickfix.initiator.TimeZone}"/>
+                        <entry key="StartTime" value="${quickfix.initiator.StartTime}"/>
+                        <entry key="EndTime" value="${quickfix.initiator.EndTime}"/>
                     </map>
                 </entry>
             </map>
@@ -55,29 +91,55 @@
             <log loggingLevel="ERROR" message="Error while processing FIX testmessage: ${exception.stacktrace}"/>
         </onException>
 
-        <route id="fileReader">
-            <from uri="file:/var/tmp/fixt/input"/>
-            <log message="Start sending FIX test messages..."/>
+        <route id="acceptorFileReader">
+            <from uri="file:/var/tmp/fixt/acceptor/input"/>
+            <log message="Start sending acceptor FIX test messages..."/>
             <split>
                 <tokenize token="\n"/>
-                <to uri="direct:processFixMessage"/>
+                <to uri="direct:processAcceptorFixMessage"/>
             </split>
-            <log message="End of sending FIX test messages."/>
+            <log message="End of sending acceptor FIX test messages."/>
         </route>
 
-        <route id="fixSender">
-            <from uri="direct:processFixMessage"/>
+        <route id="initiatorFileReader">
+            <from uri="file:/var/tmp/fixt/initiator/input"/>
+            <log message="Start sending initiator FIX test messages..."/>
+            <split>
+                <tokenize token="\n"/>
+                <to uri="direct:processInitiatorFixMessage"/>
+            </split>
+            <log message="End of sending initiator FIX test messages."/>
+        </route>
+
+        <route id="acceptorFixSender">
+            <from uri="direct:processAcceptorFixMessage"/>
             <log message="Convert String test message: ${body}"/>
             <process ref="converter"/>
             <throttle timePeriodMillis="1000">
                 <simple>{{throttle.messagePerSecond}}</simple>
                 <log message="Send FIX test message {{throttle.messagePerSecond}}: ${body}"/>
-                <to uri="quickfix:config"/>
+                <to uri="quickfixAcceptor:config"/>
             </throttle>
         </route>
 
-        <route id="fixReceiver">
-            <from uri="quickfix:config"/>
+        <route id="initiatorFixSender">
+            <from uri="direct:processInitiatorFixMessage"/>
+            <log message="Convert String test message: ${body}"/>
+            <process ref="converter"/>
+            <throttle timePeriodMillis="1000">
+                <simple>{{throttle.messagePerSecond}}</simple>
+                <log message="Send FIX test message {{throttle.messagePerSecond}}: ${body}"/>
+                <to uri="quickfixInitiator:config"/>
+            </throttle>
+        </route>
+
+        <route id="acceptorFixReceiver">
+            <from uri="quickfixAcceptor:config"/>
+            <log message="FIX Receiver: ${body}"/>
+        </route>
+
+        <route id="initiatorFixReceiver">
+            <from uri="quickfixInitiator:config"/>
             <log message="FIX Receiver: ${body}"/>
         </route>
     </camelContext>
