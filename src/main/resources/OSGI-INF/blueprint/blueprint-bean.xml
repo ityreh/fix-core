@@ -67,8 +67,8 @@
             <map>
                 <entry key="${quickfix.initiator.key}">
                     <map>
-                        <entry key="ConnectionType" value="acceptor"/>
-                        <entry key="SocketAcceptPort" value="${quickfix.initiator.SocketAcceptPort}"/>
+                        <entry key="ConnectionType" value="initiator"/>
+                        <entry key="SocketConnectPort" value="${quickfix.initiator.SocketConnectPort}"/>
                         <entry key="SocketConnectHost" value="${quickfix.initiator.SocketConnectHost"/>
                         <entry key="DataDictionary" value="${quickfix.initiator.DataDictionary}"/>
                         <entry key="TimeZone" value="${quickfix.initiator.TimeZone}"/>
@@ -116,8 +116,8 @@
             <log message="Convert String test message: ${body}"/>
             <process ref="converter"/>
             <throttle timePeriodMillis="1000">
-                <simple>{{throttle.messagePerSecond}}</simple>
-                <log message="Send FIX test message {{throttle.messagePerSecond}}: ${body}"/>
+                <simple>{{throttle.acceptor.messagePerSecond}}</simple>
+                <log message="Send FIX test message {{throttle.acceptor.messagePerSecond}}: ${body}"/>
                 <to uri="quickfixAcceptor:config"/>
             </throttle>
         </route>
@@ -127,8 +127,8 @@
             <log message="Convert String test message: ${body}"/>
             <process ref="converter"/>
             <throttle timePeriodMillis="1000">
-                <simple>{{throttle.messagePerSecond}}</simple>
-                <log message="Send FIX test message {{throttle.messagePerSecond}}: ${body}"/>
+                <simple>{{throttle.initiator.messagePerSecond}}</simple>
+                <log message="Send FIX test message {{throttle.initiator.messagePerSecond}}: ${body}"/>
                 <to uri="quickfixInitiator:config"/>
             </throttle>
         </route>
