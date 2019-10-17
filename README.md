@@ -1,20 +1,19 @@
-# fixT
-Tools for the Financial Information eXchange protocol
+fixT - Tools for the FIX protocol
+=================================
 
 To build this project use
 
     mvn install
 
-To run the project you can execute the following Maven goal
+To run this project from within Maven use
 
-    mvn camel:run
+    mvn exec:java
 
-To deploy the project in OSGi. For example using Apache ServiceMix
-or Apache Karaf. You can run the following command from its shell:
+To run this project with enabled JMX run it with the command line options
 
-    osgi:install -s mvn:de.ityreh.finance/fixt/0.0.1-SNAPSHOT
+    -Dorg.apache.camel.jmx.createRmiConnector=true -Dorg.apache.camel.jmx.mbeanObjectDomainName=org.apache.camel -Dorg.apache.camel.jmx.rmiConnector.registryPort=1099 -Dorg.apache.camel.jmx.serviceUrlPath=camel
 
-For more help see the Apache Camel documentation
+then view it via **jconsole** and connect to
 
-    http://camel.apache.org/
+    service:jmx:rmi:///jndi/rmi://localhost:1099/camel
 

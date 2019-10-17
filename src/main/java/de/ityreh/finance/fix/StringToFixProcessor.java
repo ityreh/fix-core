@@ -1,4 +1,4 @@
-package de.ityreh.finance;
+package de.ityreh.finance.fix;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
