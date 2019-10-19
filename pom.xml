@@ -14,6 +14,7 @@
     <properties>
         <quickfix.version>2.1.0</quickfix.version>
         <camel.version>2.24.2</camel.version>
+        <junit.version>4.11</junit.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <java.version>11</java.version>
         <maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
@@ -75,6 +76,12 @@
         </dependency>
 
         <!-- testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-test</artifactId>

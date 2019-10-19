@@ -17,7 +17,7 @@ public class FixInitiatorRouteBuilder extends RouteBuilder {
         from("quickfix:config/initiator.cfg").routeId("fixReceiver")
                 .log("${body}");
 
-        from("file:data?noop=true").routeId("fileReader")
+        from("file:data").routeId("fileReader")
                 .log("Start sending initiator FIX test messages...")
                 .split().tokenize("\n").to("direct:processInitiatorFixMessage")
                 .log("End of sending initiator FIX test messages.");
