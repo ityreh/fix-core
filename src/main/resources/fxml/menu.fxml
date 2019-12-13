@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:controller="de.ityreh.finance.fix.tool.controllers.MenuController" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <HBox fx:id="sessionMenu" styleClass="btns">
         <VBox.margin>
             <Insets />
@@ -55,7 +55,7 @@
             </Label>
         </children>
     </HBox>
-    <VBox prefHeight="200.0" prefWidth="100.0" styleClass="box" VBox.vgrow="ALWAYS">
+    <VBox fx:id="engineInfo" prefHeight="200.0" prefWidth="100.0" styleClass="box" VBox.vgrow="ALWAYS">
         <children>
             <Label text="ENGINE" textFill="#6f6f6f">
                 <font>

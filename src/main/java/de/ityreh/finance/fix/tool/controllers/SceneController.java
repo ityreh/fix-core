@@ -6,12 +6,12 @@ import javafx.scene.layout.Pane;
 
 import java.util.HashMap;
 
-public class AppController {
+public class SceneController {
     private HashMap<String, AnchorPane> sceneMap = new HashMap<>();
-    private Scene main;
+    private Scene active;
 
-    public AppController(Scene main){
-        this.main = main;
+    public SceneController(Scene active){
+        this.active = active;
     }
 
     public void addScene(String name, AnchorPane pane){
@@ -23,6 +23,10 @@ public class AppController {
     }
 
     public void activate(String name){
-        main.setRoot( sceneMap.get(name) );
+        active.setRoot( sceneMap.get(name) );
+    }
+
+    public Scene getActive(){
+        return active;
     }
 }

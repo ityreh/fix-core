@@ -8,17 +8,14 @@ import javafx.stage.Stage;
 import org.apache.camel.main.Main;
 
 import java.awt.*;
+import java.io.IOException;
 
-/**
- * A Camel Application
- */
 public class App extends Application {
 
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    private static Stage stage;
 
-    /**
-     * A main() so we can easily run these routing rules in our IDE
-     */
+    private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
     public static void main(String... args) throws Exception {
         Main main = new Main();
         main.addRouteBuilder(new FixInitiatorRouteBuilder());
@@ -30,13 +27,28 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/session.fxml"));
-            primaryStage.setTitle("FIX Tool");
-            primaryStage.setScene(new Scene(root, screenSize.width, screenSize.height));
-            primaryStage.show();
+            stage = primaryStage;
+            stage.setTitle("FIX Tool");
+            setSessionScene();
+            stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void setSessionScene() throws IOException {
+        stage.setScene(new Scene(FXMLLoader.load(App.class.getResource("/fxml/session.fxml")),
+                screenSize.width, screenSize.height));
+    }
+
+    public static void setMessageScene() throws IOException {
+        stage.setScene(new Scene(FXMLLoader.load(App.class.getResource("/fxml/message.fxml")),
+                screenSize.width, screenSize.height));
+    }
+
+    public static void setLogScene() throws IOException {
+        stage.setScene(new Scene(FXMLLoader.load(App.class.getResource("/fxml/log.fxml")),
+                screenSize.width, screenSize.height));
     }
 }
 
