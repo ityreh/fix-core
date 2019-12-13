@@ -1,4 +1,4 @@
-package de.ityreh.finance.fix;
+package de.ityreh.finance.fix.tool;
 
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;

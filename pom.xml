@@ -4,12 +4,12 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.ityreh.finance.fix</groupId>
-    <artifactId>fixt</artifactId>
+    <groupId>de.ityreh.finance.fix.tool</groupId>
+    <artifactId>fix-tool</artifactId>
     <packaging>jar</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>fixT :: Tools for FIX protocol</name>
+    <name>fix-tool :: Tool for FIX protocol</name>
 
     <properties>
         <quickfix.version>2.1.0</quickfix.version>
@@ -56,6 +56,18 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-quickfix</artifactId>
             <version>${camel.version}</version>
+        </dependency>
+
+        <!-- JavaFX GUI -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>11</version>
         </dependency>
 
         <!-- logging -->
@@ -124,11 +136,10 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>${exec-maven-plugin.version}</version>
                 <configuration>
-                    <mainClass>de.ityreh.finance.fix.App</mainClass>
+                    <mainClass>de.ityreh.finance.fix.tool.App</mainClass>
                     <includePluginDependencies>false</includePluginDependencies>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
