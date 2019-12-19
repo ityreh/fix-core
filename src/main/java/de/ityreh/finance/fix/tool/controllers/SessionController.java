@@ -1,5 +1,6 @@
 package de.ityreh.finance.fix.tool.controllers;
 
+import de.ityreh.finance.fix.tool.App;
 import de.ityreh.finance.fix.tool.FixSession;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -39,7 +40,7 @@ public class SessionController {
     @FXML
     Text output;
     @FXML
-    Button startButton;
+    Button sessionButton;
 
     public SessionController() {
 
@@ -47,11 +48,11 @@ public class SessionController {
 
     @FXML
     private void initialize() {
-        initSessionStartButton();
+        initSessionButton();
     }
 
-    private void initSessionStartButton() {
-        startButton.setOnAction(actionEvent -> {
+    private void initSessionButton() {
+        sessionButton.setOnAction(actionEvent -> {
             try {
                 onActionStartButton();
                 output.setText("Session started: " + beginString.getText() + ":" + senderCompId.getText() + "->"
@@ -68,6 +69,7 @@ public class SessionController {
             output.setText("Acceptors are not supported, yet. Please configure an Initiator.");
         } else {
             SessionSettings settings = new SessionSettings();
+
             settings.setString("BeginString", beginString.getText());
             settings.setString("SenderCompID", senderCompId.getText());
             settings.setString("TargetCompID", targetCompId.getText());
@@ -78,8 +80,10 @@ public class SessionController {
             settings.setString("SocketConnectPort", socketConnectPort.getText());
             settings.setString("SocketConnectHost", socketConnectHost.getText());
 
-            Application application = new FixSession();
-            ((FixSession) application).setSessionSettings(settings);
+            System.out.println(settings);
+
+            Application application = new FixSession(App.getLogManager());
+            FixSession.setSessionSettings(settings);
             MessageStoreFactory storeFactory = new FileStoreFactory(settings);
             LogFactory logFactory = new SLF4JLogFactory(settings);
             MessageFactory messageFactory = new DefaultMessageFactory();

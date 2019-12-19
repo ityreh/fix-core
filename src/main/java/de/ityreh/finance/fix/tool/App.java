@@ -1,12 +1,12 @@
 package de.ityreh.finance.fix.tool;
 
+import de.ityreh.finance.fix.tool.services.LogManager;
 import de.ityreh.finance.fix.tool.views.LogView;
 import de.ityreh.finance.fix.tool.views.MessageView;
 import de.ityreh.finance.fix.tool.views.SessionView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.apache.camel.main.Main;
 
 import java.io.IOException;
 
@@ -14,12 +14,10 @@ public class App extends Application {
 
     private static Stage stage;
     private static Scene sessionView, messageView, logView;
+    private static LogManager log;
 
     public static void main(String... args) throws Exception {
-        Main main = new Main();
-        main.addRouteBuilder(new FixInitiatorRouteBuilder());
-        //main.run(args);
-
+        log = new LogManager("onCreate", "onLogon", "onLogout", "toAdmin", "fromAdmin", "toApp", "fromApp");
         launch(args);
     }
 
@@ -46,6 +44,10 @@ public class App extends Application {
 
     public static void setLogView(){
         stage.setScene(logView);
+    }
+
+    public static LogManager getLogManager(){
+        return log;
     }
 
     private void initViews() throws IOException {

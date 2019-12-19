@@ -10,7 +10,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
                     <children>
-                        <TextArea fx:id="logField" prefHeight="600.0" prefWidth="700.0"/>
+                        <TextArea fx:id="logField" editable="false" prefHeight="600.0" prefWidth="700.0"/>
                     </children>
                 </AnchorPane>
             </content>

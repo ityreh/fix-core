@@ -59,7 +59,7 @@
                       wrapText="true" VBox.vgrow="ALWAYS"/>
         </children>
     </VBox>
-    <VBox styleClass="version">
+    <VBox>
         <children>
             <Label fx:id="version" text="Version: ${version}" VBox.vgrow="ALWAYS">
                 <padding>

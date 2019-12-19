@@ -11,6 +11,8 @@
 }
 .secondary{
     -fx-background-color: #6a1b9a;
+    -fx-text-fill: #fff;
+    -fx-font-size: 18;
 }
 .secondaryLight{
     -fx-background-color: #9c4dcc;
@@ -19,6 +21,9 @@
     -fx-background-color: #38006b;
 }
 
+.btn{
+    -fx-text-fill: #fff;
+}
 .btn:hover{
     -fx-background-color: #003c8f;
     -fx-text-fill: #fff;
@@ -29,6 +34,7 @@
     -fx-border-width: 1px 0px 0px 0px;
 }
 .info-box .label{
+    -fx-text-fill: #fff;
     -fx-font-size: 14;
 }
 .info-box .text-area{
@@ -39,6 +45,11 @@
     -fx-background-color: #0d3c73;
 }
 
-.version{
+#version{
+    -fx-text-fill: #fff;
     -fx-font-size: 14;
+}
+
+.header1 {
+    -fx-text-fill: #6a1b9a;
 }
