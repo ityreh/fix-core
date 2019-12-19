@@ -1,16 +1,44 @@
-.parent{
-    -fx-background-color: #fff;
+.primary{
+    -fx-background-color: #1565c0;
+    -fx-text-fill: #fff;
+    -fx-font-size: 18;
 }
-.sidebar{
-    -fx-background-color: #333645;
+.primaryLight{
+    -fx-background-color: #5e92f3;
 }
-.btns{
-    -fx-background-color: transparent;
+.primaryDark{
+    -fx-background-color: #003c8f;
 }
-.btns:hover{
-    -fx-background-color: #202332;
+.secondary{
+    -fx-background-color: #6a1b9a;
 }
-.box{
-    -fx-border-color: #7C8184;
+.secondaryLight{
+    -fx-background-color: #9c4dcc;
+}
+.secondaryDark{
+    -fx-background-color: #38006b;
+}
+
+.btn:hover{
+    -fx-background-color: #003c8f;
+    -fx-text-fill: #fff;
+}
+
+.info-box{
+    -fx-border-color: #fff;
     -fx-border-width: 1px 0px 0px 0px;
+}
+.info-box .label{
+    -fx-font-size: 14;
+}
+.info-box .text-area{
+    -fx-text-fill: #fff;
+    -fx-font-size: 11;
+}
+.info-box .text-area .content{
+    -fx-background-color: #0d3c73;
+}
+
+.version{
+    -fx-font-size: 14;
 }

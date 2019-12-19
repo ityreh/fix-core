@@ -1,14 +1,10 @@
 package de.ityreh.finance.fix.tool.controllers;
 
 import de.ityreh.finance.fix.tool.FixSession;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import quickfix.Acceptor;
 import quickfix.Application;
 import quickfix.ConfigError;
 import quickfix.DefaultMessageFactory;
@@ -19,10 +15,9 @@ import quickfix.MessageFactory;
 import quickfix.MessageStoreFactory;
 import quickfix.SLF4JLogFactory;
 import quickfix.SessionSettings;
-import quickfix.SocketAcceptor;
 import quickfix.SocketInitiator;
 
-public class SessionController extends MenuController {
+public class SessionController {
     @FXML
     TextField beginString;
     @FXML

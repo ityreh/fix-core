@@ -2,110 +2,68 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<VBox fx:controller="de.ityreh.finance.fix.tool.controllers.MenuController" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <HBox fx:id="sessionMenu" styleClass="btns">
+<VBox styleClass="primary" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="de.ityreh.finance.fix.tool.controllers.MenuController">
+    <HBox fx:id="sessionMenu" styleClass="btn">
         <VBox.margin>
-            <Insets />
+            <Insets/>
         </VBox.margin>
         <children>
-            <Label fx:id="sessionMenuLabel" text="Session" textFill="#b2aaaa">
-                <font>
-                    <Font size="18.0" />
-                </font>
+            <Label fx:id="sessionMenuLabel" text="Session">
                 <HBox.margin>
-                    <Insets />
+                    <Insets/>
                 </HBox.margin>
                 <padding>
-                    <Insets bottom="10.0" left="10.0" top="10.0" />
+                    <Insets bottom="10.0" left="10.0" top="10.0"/>
                 </padding>
             </Label>
         </children>
     </HBox>
-    <HBox fx:id="messageMenu" layoutX="10.0" layoutY="80.0" styleClass="btns">
+    <HBox fx:id="messageMenu" layoutX="10.0" layoutY="80.0" styleClass="btn">
         <VBox.margin>
-            <Insets />
+            <Insets/>
         </VBox.margin>
         <children>
-            <Label fx:id="messageMenuLabel" text="Message" textFill="#b2aaaa">
-                <font>
-                    <Font size="18.0" />
-                </font>
+            <Label fx:id="messageMenuLabel" text="Message">
                 <padding>
-                    <Insets bottom="10.0" left="10.0" top="10.0" />
+                    <Insets bottom="10.0" left="10.0" top="10.0"/>
                 </padding>
             </Label>
         </children>
     </HBox>
-    <HBox fx:id="logMenu" layoutX="10.0" layoutY="117.0" styleClass="btns">
+    <HBox fx:id="logMenu" layoutX="10.0" layoutY="117.0" styleClass="btn">
         <VBox.margin>
-            <Insets />
+            <Insets/>
         </VBox.margin>
         <children>
-            <Label fx:id="logMenuLabel" text="Log" textFill="#b2aaaa">
-                <font>
-                    <Font size="18.0" />
-                </font>
+            <Label fx:id="logMenuLabel" text="Log">
                 <padding>
-                    <Insets bottom="10.0" left="10.0" top="10.0" />
+                    <Insets bottom="10.0" left="10.0" top="10.0"/>
                 </padding>
             </Label>
         </children>
     </HBox>
-    <VBox fx:id="engineInfo" prefHeight="200.0" prefWidth="100.0" styleClass="box" VBox.vgrow="ALWAYS">
+    <VBox styleClass="info-box" VBox.vgrow="ALWAYS">
         <children>
-            <Label text="ENGINE" textFill="#6f6f6f">
-                <font>
-                    <Font size="14.0" />
-                </font>
+            <Label text="MANUAL" VBox.vgrow="ALWAYS">
                 <padding>
-                    <Insets bottom="10.0" left="10.0" top="10.0" />
+                    <Insets bottom="10.0" left="10.0" top="10.0"/>
                 </padding>
             </Label>
-            <HBox>
-                <children>
-                    <Label text="O" textFill="#52ff34">
-                        <font>
-                            <Font size="10.0" />
-                        </font>
-                  <padding>
-                     <Insets left="10.0" />
-                  </padding>
-                    </Label>
-               <VBox prefHeight="200.0" prefWidth="100.0">
-                  <children>
-                     <Label text="FIXT.1.1" textFill="#a2bfa2">
-                        <VBox.margin>
-                           <Insets />
-                        </VBox.margin>
-                        <padding>
-                           <Insets left="10.0" />
-                        </padding></Label>
-                     <Label text="Initiator" textFill="#a2bfa2">
-                        <VBox.margin>
-                           <Insets />
-                        </VBox.margin>
-                        <padding>
-                           <Insets left="10.0" />
-                        </padding></Label>
-                     <Label text="Acceptor" textFill="#a2bfa2">
-                        <padding>
-                           <Insets left="10.0" />
-                        </padding></Label>
-                  </children>
-               </VBox>
-                </children>
-            </HBox>
+            <TextArea editable="false" prefHeight="300.0"
+                      text="1. Configure the session and start it in the session menu.&#10;&#10;2. Send various business messages via the started session in the message menu.&#10;&#10;3. Analyze the sent and received messages in the log menu."
+                      wrapText="true" VBox.vgrow="ALWAYS"/>
         </children>
     </VBox>
-    <VBox>
+    <VBox styleClass="version">
         <children>
-            <Label fx:id="version" text="Version: 0.0.1" textFill="WHITE">
+            <Label fx:id="version" text="Version: ${version}" VBox.vgrow="ALWAYS">
                 <padding>
-                    <Insets bottom="10.0" left="10.0" top="10.0" />
+                    <Insets bottom="10.0" left="10.0" top="10.0"/>
                 </padding>
             </Label>
         </children>
