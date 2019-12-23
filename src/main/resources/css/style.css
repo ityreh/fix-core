@@ -1,31 +1,48 @@
+.root{
+    COLOR_PRIMARY: #1565c0;
+    COLOR_PRIMARY_LIGHT: #5e92f3;
+    COLOR_PRIMARY_DARK: #003c8f;
+    COLOR_SECONDARY: #6a1b9a;
+    COLOR_SECONDARY_LIGHT: #9c4dcc;
+    COLOR_SECONDARY_DARK: #38006b;
+}
+
 .primary{
-    -fx-background-color: #1565c0;
+    -fx-background-color: COLOR_PRIMARY;
     -fx-text-fill: #fff;
     -fx-font-size: 18;
 }
 .primaryLight{
-    -fx-background-color: #5e92f3;
+    -fx-background-color: COLOR_PRIMARY_LIGHT;
 }
 .primaryDark{
-    -fx-background-color: #003c8f;
+    -fx-background-color: COLOR_PRIMARY_DARK;
 }
 .secondary{
-    -fx-background-color: #6a1b9a;
+    -fx-background-color: COLOR_SECONDARY;
     -fx-text-fill: #fff;
     -fx-font-size: 18;
 }
 .secondaryLight{
-    -fx-background-color: #9c4dcc;
+    -fx-background-color: COLOR_SECONDARY_LIGHT;
 }
 .secondaryDark{
-    -fx-background-color: #38006b;
+    -fx-background-color: COLOR_SECONDARY_DARK;
 }
 
 .btn{
     -fx-text-fill: #fff;
 }
 .btn:hover{
-    -fx-background-color: #003c8f;
+    -fx-background-color: COLOR_PRIMARY_DARK;
+    -fx-text-fill: #fff;
+}
+.view-button{
+    -fx-background-color: COLOR_SECONDARY;
+    -fx-text-fill: #fff;
+}
+.view-button:hover{
+    -fx-background-color: COLOR_SECONDARY_DARK;
     -fx-text-fill: #fff;
 }
 
@@ -51,5 +68,8 @@
 }
 
 .header1 {
-    -fx-text-fill: #6a1b9a;
+    -fx-text-fill: COLOR_SECONDARY;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-padding: 10 0 10 10;
 }

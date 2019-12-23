@@ -14,7 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.ityreh.finance.fix.tool.controllers.SessionController">
+<VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0"
+      xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="de.ityreh.finance.fix.tool.controllers.SessionController">
     <children>
         <ScrollPane VBox.vgrow="ALWAYS">
             <content>
@@ -22,105 +24,110 @@
                     <children>
                         <VBox prefHeight="459.0" prefWidth="700.0">
                             <children>
-                                <Label text="Session" styleClass="header1">
-                                    <padding>
-                                        <Insets left="10.0" top="10.0" />
-                                    </padding>
-                                    <font>
-                                        <Font name="System Bold" size="16.0" />
-                                    </font>
-                                </Label>
+                                <Label text="Session" styleClass="header1"/>
                                 <GridPane>
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="155.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.0" minWidth="10.0" prefWidth="145.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.0" minWidth="10.0" prefWidth="402.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0"
+                                                           prefWidth="155.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.0" minWidth="10.0"
+                                                           prefWidth="145.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.0" minWidth="10.0"
+                                                           prefWidth="402.0"/>
                                     </columnConstraints>
                                     <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                     </rowConstraints>
                                     <children>
                                         <Label text="BeginString">
                                             <padding>
-                                                <Insets left="10.0" right="10.0" top="5.0" />
+                                                <Insets left="10.0" right="10.0" top="5.0"/>
                                             </padding>
                                         </Label>
-                                        <TextField fx:id="beginString" prefHeight="27.0" prefWidth="523.0" promptText="FIX.4.2" GridPane.columnIndex="1" />
+                                        <TextField fx:id="beginString" prefHeight="27.0" prefWidth="523.0"
+                                                   promptText="FIX.4.2" GridPane.columnIndex="1"/>
                                         <Label text="SenderCompID" GridPane.rowIndex="1">
                                             <padding>
-                                                <Insets left="10.0" right="10.0" top="5.0" />
+                                                <Insets left="10.0" right="10.0" top="5.0"/>
                                             </padding>
                                         </Label>
-                                        <TextField fx:id="senderCompId" promptText="MY_COMP" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="senderCompId" promptText="MY_COMP" GridPane.columnIndex="1"
+                                                   GridPane.rowIndex="1"/>
                                         <Label text="TargetCompID" GridPane.rowIndex="2">
                                             <padding>
-                                                <Insets left="10.0" right="10.0" top="5.0" />
+                                                <Insets left="10.0" right="10.0" top="5.0"/>
                                             </padding>
                                         </Label>
-                                        <TextField fx:id="targetCompId" promptText="PARTNER_COMP" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                        <Label layoutX="10.0" layoutY="74.0" text="ConnectionType" GridPane.rowIndex="3">
+                                        <TextField fx:id="targetCompId" promptText="PARTNER_COMP"
+                                                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                        <Label layoutX="10.0" layoutY="74.0" text="ConnectionType"
+                                               GridPane.rowIndex="3">
                                             <padding>
-                                                <Insets left="10.0" right="10.0" top="5.0" />
+                                                <Insets left="10.0" right="10.0" top="5.0"/>
                                             </padding>
                                         </Label>
-                                        <TextField fx:id="connectionType" layoutX="237.0" layoutY="72.0" promptText="initiator" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <TextField fx:id="connectionType" layoutX="237.0" layoutY="72.0"
+                                                   promptText="initiator" GridPane.columnIndex="1"
+                                                   GridPane.rowIndex="3"/>
                                         <Label layoutX="10.0" layoutY="104.0" text="TimeZone" GridPane.rowIndex="4">
                                             <padding>
-                                                <Insets left="10.0" right="10.0" top="5.0" />
+                                                <Insets left="10.0" right="10.0" top="5.0"/>
                                             </padding>
                                         </Label>
-                                        <TextField fx:id="timeZone" layoutX="237.0" layoutY="102.0" promptText="Europe/Berlin" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                        <TextField fx:id="timeZone" layoutX="237.0" layoutY="102.0"
+                                                   promptText="Europe/Berlin" GridPane.columnIndex="1"
+                                                   GridPane.rowIndex="4"/>
                                         <Label layoutX="10.0" layoutY="134.0" text="StartTime" GridPane.rowIndex="5">
                                             <padding>
-                                                <Insets left="10.0" right="10.0" top="5.0" />
+                                                <Insets left="10.0" right="10.0" top="5.0"/>
                                             </padding>
                                         </Label>
-                                        <TextField fx:id="startTime" layoutX="237.0" layoutY="132.0" promptText="00:00:00" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                        <TextField fx:id="startTime" layoutX="237.0" layoutY="132.0"
+                                                   promptText="00:00:00" GridPane.columnIndex="1"
+                                                   GridPane.rowIndex="5"/>
                                         <Label layoutX="10.0" layoutY="164.0" text="EndTime" GridPane.rowIndex="6">
                                             <padding>
-                                                <Insets left="10.0" right="10.0" top="5.0" />
+                                                <Insets left="10.0" right="10.0" top="5.0"/>
                                             </padding>
                                         </Label>
-                                        <TextField fx:id="endTime" layoutX="237.0" layoutY="162.0" promptText="00:00:00" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                        <TextField fx:id="endTime" layoutX="237.0" layoutY="162.0" promptText="00:00:00"
+                                                   GridPane.columnIndex="1" GridPane.rowIndex="6"/>
                                     </children>
                                 </GridPane>
-                                <Label layoutX="10.0" layoutY="10.0" text="Initiator" styleClass="header1">
-                                    <padding>
-                                        <Insets left="10.0" top="10.0" />
-                                    </padding>
-                                    <font>
-                                        <Font name="System Bold" size="16.0" />
-                                    </font>
-                                </Label>
+                                <Label layoutX="10.0" layoutY="10.0" text="Initiator" styleClass="header1"/>
                                 <GridPane layoutX="10.0" layoutY="40.0">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="155.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.0" minWidth="10.0" prefWidth="145.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.0" minWidth="10.0" prefWidth="402.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0"
+                                                           prefWidth="155.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.0" minWidth="10.0"
+                                                           prefWidth="145.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.0" minWidth="10.0"
+                                                           prefWidth="402.0"/>
                                     </columnConstraints>
                                     <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                                     </rowConstraints>
                                     <children>
                                         <Label text="SocketConnectPort">
                                             <padding>
-                                                <Insets left="10.0" right="10.0" top="5.0" />
+                                                <Insets left="10.0" right="10.0" top="5.0"/>
                                             </padding>
                                         </Label>
-                                        <TextField fx:id="socketConnectPort" prefHeight="27.0" prefWidth="523.0" promptText="9876" GridPane.columnIndex="1" />
+                                        <TextField fx:id="socketConnectPort" prefHeight="27.0" prefWidth="523.0"
+                                                   promptText="9876" GridPane.columnIndex="1"/>
                                         <Label text="SocketConnectHost" GridPane.rowIndex="1">
                                             <padding>
-                                                <Insets left="10.0" right="10.0" top="5.0" />
+                                                <Insets left="10.0" right="10.0" top="5.0"/>
                                             </padding>
                                         </Label>
-                                        <TextField fx:id="socketConnectHost" promptText="127.0.0.1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="socketConnectHost" promptText="127.0.0.1"
+                                                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
                                     </children>
                                 </GridPane>
                             </children>
@@ -131,18 +138,20 @@
         </ScrollPane>
         <HBox>
             <children>
-                <Text fx:id="output" strokeType="OUTSIDE" strokeWidth="0.0" text="Start your Session when you are ready with configuration." HBox.hgrow="ALWAYS">
+                <Text fx:id="output" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Start your Session when you are ready with configuration." HBox.hgrow="ALWAYS">
                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" top="10.0"/>
                     </HBox.margin>
                 </Text>
             </children>
         </HBox>
         <HBox>
             <children>
-                <Button fx:id="sessionButton" styleClass="secondary" mnemonicParsing="false" text="Start" HBox.hgrow="ALWAYS">
+                <Button fx:id="sessionButton" styleClass="view-button" mnemonicParsing="false" text="Start"
+                        HBox.hgrow="ALWAYS">
                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" top="10.0"/>
                     </HBox.margin>
                 </Button>
             </children>
