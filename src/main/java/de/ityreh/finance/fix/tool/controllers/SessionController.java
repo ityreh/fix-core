@@ -1,7 +1,9 @@
 package de.ityreh.finance.fix.tool.controllers;
 
 import de.ityreh.finance.fix.tool.App;
-import de.ityreh.finance.fix.tool.FixSession;
+import de.ityreh.finance.fix.tool.events.InfoLogEvent;
+import de.ityreh.finance.fix.tool.services.FixService;
+import de.ityreh.finance.fix.tool.services.LogService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -42,8 +44,10 @@ public class SessionController {
     @FXML
     Button sessionButton;
 
-    public SessionController() {
+    LogService log;
 
+    public SessionController() {
+        this.log = App.getLogService();
     }
 
     @FXML
@@ -56,7 +60,7 @@ public class SessionController {
             try {
                 onActionStartButton();
                 output.setText("Session started: " + beginString.getText() + ":" + senderCompId.getText() + "->"
-                    + targetCompId.getText());
+                        + targetCompId.getText());
             } catch (ConfigError configError) {
                 output.setText(configError.toString());
                 configError.printStackTrace();
@@ -80,10 +84,10 @@ public class SessionController {
             settings.setString("SocketConnectPort", socketConnectPort.getText());
             settings.setString("SocketConnectHost", socketConnectHost.getText());
 
-            System.out.println(settings);
+            log.notify("info", new InfoLogEvent(this, settings.toString()));
 
-            Application application = new FixSession(App.getLogManager());
-            FixSession.setSessionSettings(settings);
+            Application application = new FixService();
+            FixService.setSessionSettings(settings);
             MessageStoreFactory storeFactory = new FileStoreFactory(settings);
             LogFactory logFactory = new SLF4JLogFactory(settings);
             MessageFactory messageFactory = new DefaultMessageFactory();

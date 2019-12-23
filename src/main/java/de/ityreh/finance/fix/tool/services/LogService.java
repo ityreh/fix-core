@@ -1,6 +1,7 @@
 package de.ityreh.finance.fix.tool.services;
 
-import de.ityreh.finance.fix.tool.events.LogEvent;
+import de.ityreh.finance.fix.tool.events.FixLogEvent;
+import de.ityreh.finance.fix.tool.events.InfoLogEvent;
 import de.ityreh.finance.fix.tool.listeners.LogListener;
 
 import java.util.ArrayList;
@@ -8,10 +9,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LogManager {
+public class LogService {
     Map<String, List<LogListener>> listeners = new HashMap<>();
 
-    public LogManager(String... operations) {
+    public LogService(String... operations) {
         for (String operation : operations) {
             this.listeners.put(operation, new ArrayList<>());
         }
@@ -27,10 +28,17 @@ public class LogManager {
         users.remove(listener);
     }
 
-    public void notify(String eventType, LogEvent logEvent) {
+    public void notify(String eventType, FixLogEvent fixLogEvent) {
         List<LogListener> users = listeners.get(eventType);
         for (LogListener listener : users) {
-            listener.log(eventType, logEvent);
+            listener.log(eventType, fixLogEvent);
+        }
+    }
+
+    public void notify(String eventType, InfoLogEvent infoLogEvent) {
+        List<LogListener> users = listeners.get(eventType);
+        for (LogListener listener : users) {
+            listener.log(eventType, infoLogEvent);
         }
     }
 }

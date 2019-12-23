@@ -1,6 +1,6 @@
 package de.ityreh.finance.fix.tool;
 
-import de.ityreh.finance.fix.tool.services.LogManager;
+import de.ityreh.finance.fix.tool.services.LogService;
 import de.ityreh.finance.fix.tool.views.LogView;
 import de.ityreh.finance.fix.tool.views.MessageView;
 import de.ityreh.finance.fix.tool.views.SessionView;
@@ -14,10 +14,11 @@ public class App extends Application {
 
     private static Stage stage;
     private static Scene sessionView, messageView, logView;
-    private static LogManager log;
+    private static LogService log;
 
     public static void main(String... args) throws Exception {
-        log = new LogManager("onCreate", "onLogon", "onLogout", "toAdmin", "fromAdmin", "toApp", "fromApp");
+        log = new LogService("onCreate", "onLogon", "onLogout", "toAdmin", "fromAdmin", "toApp", "fromApp",
+                "info");
         launch(args);
     }
 
@@ -46,7 +47,7 @@ public class App extends Application {
         stage.setScene(logView);
     }
 
-    public static LogManager getLogManager(){
+    public static LogService getLogService(){
         return log;
     }
 
