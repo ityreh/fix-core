@@ -1,19 +1,52 @@
-fixT - Tools for the FIX protocol
-=================================
+FIX Core
+========
 
-To build this project use
+FIX Core offers a REST API to run and manage FIX Sessions based on the FIX Engine implemented by QuickFix/J.
 
-    mvn install
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-To run this project from within Maven use
+<hr>
 
-    mvn exec:java
+![Overview][overview]
 
-To run this project with enabled JMX run it with the command line options
+# Installation
 
-    -Dorg.apache.camel.jmx.createRmiConnector=true -Dorg.apache.camel.jmx.mbeanObjectDomainName=org.apache.camel -Dorg.apache.camel.jmx.rmiConnector.registryPort=1099 -Dorg.apache.camel.jmx.serviceUrlPath=camel
 
-then view it via **jconsole** and connect to
 
-    service:jmx:rmi:///jndi/rmi://localhost:1099/camel
+# Usage
 
+
+
+# Support
+
+
+
+# Roadmap
+
+
+
+# Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## Run & Test the Application
+
+### Run (Development)
+
+Run the application with the quarkus:dev goal.
+
+```bash
+mvn compile quarkus:dev
+```
+
+### Test (UnitTests)
+
+Run the UnitTests with the test goal.
+
+```bash
+mvn test
+```
+
+[overview]: ./doc/export/overview.png "Overview"
