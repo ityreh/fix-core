@@ -1,4 +1,4 @@
-package de.ityreh.fix;
+package de.ityreh.fixotron;
 
 import io.quarkus.test.junit.NativeImageTest;
 

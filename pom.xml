@@ -2,10 +2,11 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>de.ityreh.fix</groupId>
-  <artifactId>fix-core</artifactId>
+  <groupId>de.ityreh</groupId>
+  <artifactId>fixotron-core</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <properties>
+    <quickfixj.version>2.2.0</quickfixj.version>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
     <maven.compiler.source>11</maven.compiler.source>
@@ -31,6 +32,11 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
+    <dependency>
+      <groupId>org.quickfixj</groupId>
+      <artifactId>quickfixj-core</artifactId>
+      <version>${quickfixj.version}</version>
+    </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy</artifactId>

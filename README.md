@@ -1,7 +1,7 @@
-FIX Core
+FIXotron Core
 ========
 
-FIX Core is a Quarkus application and offers a REST API to run and manage FIX Sessions based on the FIX Engine implemented by QuickFix/J.
+FIXotron Core is a Quarkus application and offers a REST API to run and manage FIX Sessions based on the FIX Engine implemented by QuickFix/J.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
@@ -14,7 +14,7 @@ FIX Core is a Quarkus application and offers a REST API to run and manage FIX Se
 You can pull the image from DokcerHub and distribute it in your containerized environment.
 
 ```bash
-docker pull ityreh/fix-core
+docker pull ityreh/fixotron-core
 ```
 
 # Contributing
@@ -33,7 +33,7 @@ Run the application with the quarkus:dev goal.
 mvn compile quarkus:dev
 ```
 
-You can get the API description through an OpenAPI specification via http://localhost:8080/openapi and you can test the API with Swagger UI via http://localhost:8080/swagger-ui.
+Access the application website via http://0.0.0.0:8080. You can get the API description through an OpenAPI specification via http://localhost:8080/openapi and you can test the API with Swagger UI via http://localhost:8080/swagger-ui.
 
 ### Test (UnitTests)
 
