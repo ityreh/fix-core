@@ -1,9 +1,9 @@
 package de.ityreh.fixotron.core;
 
-import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import de.ityreh.fixotron.session.SessionService;
 import quickfix.Application;
 import quickfix.DoNotSend;
 import quickfix.FieldNotFound;
@@ -16,7 +16,7 @@ import quickfix.UnsupportedMessageType;
 
 public class FixApplication implements Application {
 
-    private static final Logger LOG = LoggerFactory.getLogger(FixApplication.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SessionService.class);
 
     @Override
     public void onCreate(SessionID sessionID) {

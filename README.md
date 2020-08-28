@@ -23,6 +23,20 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
+## Manage Quarkus Extensions
+
+You can obtain a list of the available extensions with:
+
+```
+mvn quarkus:list-extensions
+```
+
+If you want to enable extensions, you can use the following goal with a comma-separated list of the extensions you want to enable:
+
+```
+mvn quarkus:add-extension -Dextensions="hibernate-validator"
+```
+
 ## Run & Test the Application
 
 ### Run (Development)
